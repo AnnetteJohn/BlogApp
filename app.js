@@ -11,7 +11,7 @@ const bodyParser = require('body-parser'),
 //mongoose.connect('mongodb://localhost:27017/restful_backend',
 // mongoose.connect('mongodb+srv://annettejohn:Annette@cluster0.brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority',
 
-const dburl = PROCESS.ENV.dburl || 'mongodb://localhost:27017/restful_backend';
+var dburl = process.env.dburl || 'mongodb://localhost:27017/restful_backend';
 mongoose.connect(dburl,
  	{	
 		useNewUrlParser: true, 
@@ -165,5 +165,5 @@ app.delete('/blogs/:id', (req, res)=> {
 
 
 
-const port = PROCESS.ENV.port || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Server has started at PORT ${port} "))
