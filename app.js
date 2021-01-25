@@ -11,8 +11,8 @@ const bodyParser = require('body-parser'),
 //mongoose.connect('mongodb://localhost:27017/restful_backend',
 // mongoose.connect('mongodb+srv://annettejohn:Annette@cluster0.brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority',
 
-const dburl = PROCESS.ENV.dburl;
-mongoose.connect('mongodb+srv://annette-john:blogapp@cluster0.eshmk.mongodb.net/<dbname>?retryWrites=true&w=majority'),
+const dburl = PROCESS.ENV.dburl || 'mongodb://localhost:27017/restful_backend';
+mongoose.connect(dburl,
  	{	
 		useNewUrlParser: true, 
     	useUnifiedTopology: true,
