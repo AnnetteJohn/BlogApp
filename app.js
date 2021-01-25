@@ -9,7 +9,10 @@ const bodyParser = require('body-parser'),
 
 // APP CONFIG
 //mongoose.connect('mongodb://localhost:27017/restful_backend',
-mongoose.connect('mongodb+srv://annettejohn:Annette317@cluster0.brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority',
+// mongoose.connect('mongodb+srv://annettejohn:Annette@cluster0.brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority',
+
+const dburl = PROCESS.ENV.dburl;
+mongoose.connect('mongodb+srv://annette-john:blogapp@cluster0.eshmk.mongodb.net/<dbname>?retryWrites=true&w=majority'),
  	{	
 		useNewUrlParser: true, 
     	useUnifiedTopology: true,
@@ -162,5 +165,5 @@ app.delete('/blogs/:id', (req, res)=> {
 
 
 
-
-app.listen(3000, () => console.log("Server has started at PORT 3000"))
+const port = PROCESS.ENV.port || 3000;
+app.listen(port, () => console.log("Server has started at PORT ${port} "))
